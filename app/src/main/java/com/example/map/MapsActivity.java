@@ -34,21 +34,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        streetV = (Button)findViewById(R.id.StreetV);
         mapFragment.getMapAsync(this);
 
-//        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
-//            @Override
-//            public void onMapLongClick(LatLng latLng) {
-//                mMap.addMarker(new MarkerOptions()
-//                    .position(latLng).draggable(true));
-//            }
-//        });
 
 
     }
 
     public void streetview(View view){
         Intent intent = new Intent();
-//        //Marker marker;
-        LatLng latlng = new LatLng(-33.87365, 151.20689);
+
+        LatLng latlng = marker.getPosition();
         double latitude=latlng.latitude;
         double longtitude =latlng.longitude;
         intent.putExtra("Lat", latitude);
@@ -76,7 +69,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-33.87365, 151.20689);
-        marker=mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").draggable(true));
+        marker=mMap.addMarker(new MarkerOptions().position(sydney).title("Marker now").draggable(true));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+//        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+//            @Override
+//            public void onMapLongClick(LatLng latLng) {
+//                mMap.addMarker(new MarkerOptions()
+//                        .position(latLng).draggable(true));
+//            }
+//        });
     }
 }
